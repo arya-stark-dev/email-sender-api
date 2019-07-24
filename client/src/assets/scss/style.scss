@@ -1,0 +1,82 @@
+@import './colors';
+@import './fonts';
+
+* {
+  font-family: proxima_nova,"Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+html {
+  font-size: 1em;
+}
+
+h1 {
+  font-size: 2.25rem;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+h3 {
+  font-size: 1.75rem;
+}
+
+h4 {
+  font-size: 1.5rem;
+}
+
+h5 {
+  font-size: 1.25rem;
+}
+
+h6 {
+  font-size: 1.1125rem;
+}
+
+
+// Backgrounds
+.vnc-green-background {
+  background-color: $light-green;
+}
+
+// foreground
+.off-white {
+  color: $off-white;
+}
+
+.grey-lighter {
+  color: $grey-lighter;
+}
+
+.is-danger-text {
+  color: $red-dreadful;
+  font-size: $font-10;
+}
+
+.is-danger {
+  border-color: $red-dreadful;
+}
+
+.font10 {
+  font-size: $font-10;
+}
+
+.font12 {
+  font-size: $font-12;
+}
+
+.font14 {
+  font-size: $font-14;
+}
+
+.font16 {
+  font-size: $font-16;
+}
+
+.font18 {
+  font-size: $font-18;
+}
+
+.font20 {
+  font-size: $font-20;
+}

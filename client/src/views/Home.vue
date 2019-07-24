@@ -1,18 +1,20 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div class="home ">
+    <navigation-bar />
+    <email-sender />
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue';
+import NavigationBar from '@/components/NavigationBar.vue';
+import EmailSender from '@/components/EmailSenderComponent.vue';
 
 export default {
   name: 'home',
   components: {
-    HelloWorld,
+    NavigationBar,
+    EmailSender,
   },
 };
 </script>

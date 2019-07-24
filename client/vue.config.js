@@ -3,6 +3,18 @@ module.exports = {
   },
   devServer: {
     open: 'Chrome',
-    proxy: 'http://localhost:5600',
+    proxy: {
+      '/api': {
+        target: 'https://localhost:5600',
+        secure: false,
+      },
+    },
+  },
+  css: {
+    loaderOptions: {
+      sass: {
+        data: '@import "@/assets/scss/_colors.scss";',
+      },
+    },
   },
 };

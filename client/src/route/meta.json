@@ -1,0 +1,20 @@
+{
+  "/login": {
+    "title": "Login Page",
+    "requiresAuth": false,
+    "authPage": true,
+    "keywords": "music player, vue.js, songs, app, software, javascript, login, authenticate"
+  },
+  "/create-access": {
+    "title": "SignUp Page",
+    "requiresAuth": false,
+    "authPage": true,
+    "keywords": "music player, vue.js, songs, app, software, javascript, register, signup, authenticate"
+  },
+  "/": {
+    "title": "SignUp Page",
+    "requiresAuth": true,
+    "authPage": false,
+    "keywords": "music player, vue.js, songs, app, software, javascript, home page"
+  }
+}
