@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon --exec babel-node server/app.js",
-    "build": "babel server --out-dir server-dist",
+    "build": "cd client && yarn && npm run build && cd ../ && babel server --out-dir server-dist",
     "serve": "node server-dist/app.js"
   },
   "repository": {
