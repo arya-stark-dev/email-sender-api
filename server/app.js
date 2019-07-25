@@ -51,7 +51,7 @@ app.use((req, res, next) => {
 });
 
 app.use('/api', router);
-app.get('/', function(req, res) {
+app.get('/public', function(req, res) {
   res.render(path.join(__dirname + '/../dist/index.html'));
 });
 

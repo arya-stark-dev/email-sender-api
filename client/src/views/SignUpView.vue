@@ -97,7 +97,7 @@
         <div class="col-12">
           <p class="font10">
             Already have an account?
-            <router-link to="/login" >click to login</router-link>
+            <router-link to="/public/login">click to login</router-link>
           </p>
         </div>
       </div>

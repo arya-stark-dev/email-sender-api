@@ -36,10 +36,10 @@ export default {
   methods: {
     async logOutUser() {
       await this.$store.dispatch('updateUserToken', '');
-      this.$router.push('/login');
+      this.$router.push('/public/login');
     },
     goToLogin() {
-      this.$router.push('/login');
+      this.$router.push('/public/login');
     },
   },
   computed: {

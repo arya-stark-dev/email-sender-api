@@ -22,10 +22,10 @@ function route(path, name, view) {
 
 export default new Router({
   routes: [
-    route('/', 'homepage', 'Home'),
-    route('/about', 'about-page', 'About'),
-    route('/create-access', 'create-access', 'SignUpView'),
-    route('/login', 'login-page', 'SignInView'),
+    { path: '/', redirect: '/public' },
+    route('/public', 'homepage', 'Home'),
+    route('/public/create-access', 'create-access', 'SignUpView'),
+    route('/public/login', 'login-page', 'SignInView'),
     route('/404', 'not-found', 'NotFoundView'),
     { path: '*', redirect: '/404' },
   ],
