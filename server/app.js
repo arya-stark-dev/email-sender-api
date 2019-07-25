@@ -49,8 +49,8 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use('/', history())
 app.use('/api', router);
+app.use('/', history())
 
 const port = process.env.PORT || 5600;
 
