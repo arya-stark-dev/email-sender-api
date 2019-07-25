@@ -15,7 +15,7 @@ import './assets/scss/style.scss';
 
 Vue.config.productionTip = false;
 Vue.use(VeeValidate);
-Vue.prototype.$api = process.env.VUE_APP_API_URL;
+Vue.prototype.$api = process.env.VUE_APP_API_URL || '';
 Vue.prototype.$http = axios;
 
 new Vue({

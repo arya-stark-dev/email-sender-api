@@ -4,8 +4,6 @@ const path = require('path');
 process.env.VUE_CLI_BABEL_TARGET_NODE = true;
 process.env.VUE_CLI_BABEL_TRANSPILE_MODULES = true;
 
-console.log({ __dirname });
-
 module.exports = {
   outputDir: path.resolve(__dirname, '../dist'),
   devServer: {

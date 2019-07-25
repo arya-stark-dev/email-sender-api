@@ -1,4 +1,4 @@
-import { resolve } from 'path';
+import path from 'path';
 import express from 'express';
 import bodyParser  from 'body-parser';
 import cors from 'cors';
@@ -30,10 +30,11 @@ const corsOptionsDelegate = (req, callback) => {
   callback(null, corsOptions);
 };
 
-const publicPath = resolve(__dirname, '../dist');
-const staticConf = { maxAge: '1y', etag: false }
+const publicPath = path.join(__dirname + '/../dist');
 
-app.use(express.static(publicPath, staticConf))
+app.use(express.static(publicPath))
+app.use(history())
+app.use(express.static(publicPath))
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -50,7 +51,9 @@ app.use((req, res, next) => {
 });
 
 app.use('/api', router);
-app.use('/', history())
+app.get('/', function(req, res) {
+  res.render(path.join(__dirname + '/../dist/index.html'));
+});
 
 const port = process.env.PORT || 5600;
 
