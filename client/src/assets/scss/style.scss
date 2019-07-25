@@ -80,3 +80,45 @@ h6 {
 .font20 {
   font-size: $font-20;
 }
+
+/* Custom CSS for quill.js font sizes */
+.ql-snow .ql-picker.ql-size .ql-picker-label[data-value="14px"]::before {
+  content: 'Small' !important;
+}
+.ql-snow .ql-picker.ql-size .ql-picker-label[data-value="18px"]::before {
+  content: 'Normal' !important;
+}
+.ql-snow .ql-picker.ql-size .ql-picker-label[data-value="24px"]::before {
+  content: 'Large' !important;
+}
+.ql-snow .ql-picker.ql-size .ql-picker-label[data-value="28px"]::before {
+  content: 'X-Large' !important;
+}
+
+.ql-snow .ql-picker.ql-size {
+  .ql-picker-item[data-value="14px"]::before {
+    content: 'Small';
+    font-size: 14px !important;
+  }
+}
+
+.ql-snow .ql-picker.ql-size {
+  .ql-picker-item[data-value="18px"]::before {
+    content: 'Normal';
+    font-size: 18px !important;
+  }
+}
+
+.ql-snow .ql-picker.ql-size {
+  .ql-picker-item[data-value="24px"]::before {
+    content: 'Large';
+    font-size: 24px !important;
+  }
+}
+
+.ql-snow .ql-picker.ql-size {
+  .ql-picker-item[data-value="28px"]::before {
+    content: 'X-Large';
+    font-size: 28px !important;
+  }
+}

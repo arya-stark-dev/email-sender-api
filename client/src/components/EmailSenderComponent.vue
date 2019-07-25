@@ -116,19 +116,11 @@
         <div class="form-row">
           <div class="form-group col-12">
             <label for="content">Content:</label>
-            <textarea
-              class="form-control"
-              v-model="input.content"
-              type="text"
-              placeholder="Enter Message body here"
-              required
+            <vue-editor
+              :editor-options="editorSettings"
               v-validate="{ required: true }"
-              :class="{'is-danger': errors.has('content')}"
-              name="content"
-              rows="10"
-              ref="content"
-              id="content">
-            </textarea>
+              v-model="input.content"
+              data-vv-name="content"></vue-editor>
             <span v-show="errors.has('content')" class="help is-danger-text">
               {{ errors.first('content') }}
             </span>
@@ -152,14 +144,30 @@
 
 <script>
 import { setTimeout } from 'timers';
+import { VueEditor, Quill } from 'vue2-editor';
 import requestMixin from '@/mixins/request-mixin';
 import BaseButton from '@/components/BaseButton.vue';
+
+const FontSize = Quill.import('attributors/style/size');
+FontSize.whitelist = ['14px', '18px', '24px', '28px'];
+Quill.register(FontSize, true);
+
+const toolbarOptions = [
+  [{ size: ['14px', '18px', '24px', '28px'] }],
+  ['bold', 'italic', 'underline', 'strike'],
+  [{ align: '' }, { align: 'center' }, { align: 'right' }, { align: 'justify' }],
+  ['blockquote', 'code-block'],
+  [{ list: 'ordered' }, { list: 'bullet' }, { list: 'check' }],
+  [{ direction: 'rtl' }],
+  ['clean'],
+];
 
 export default {
   name: 'email-sender',
   mixins: [requestMixin],
   components: {
     BaseButton,
+    VueEditor,
   },
   data() {
     return {
@@ -173,6 +181,11 @@ export default {
       },
       emailSent: -1,
       triggeredSend: false,
+      editorSettings: {
+        modules: {
+          toolbar: toolbarOptions,
+        },
+      },
     };
   },
   computed: {
