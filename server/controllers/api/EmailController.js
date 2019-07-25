@@ -5,11 +5,10 @@ sendGridMailService.setApiKey(process.env.SENDGRID_API_KEY);
 
 const sendEmail = async (req, res) => {
   const msg = {
-    to: req.body.receiver,
-    from: req.body.sender,
+    to: `${req.body.receiverName} <${req.body.receiver}>`,
+    from: `${req.body.senderName} <${req.body.sender}>`,
     subject: req.body.subject,
     text: req.body.content,
-    html: '<strong>and easy to do anywhere, even with Node.js</strong>',
   };
 
   try {

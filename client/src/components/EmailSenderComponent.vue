@@ -6,94 +6,144 @@
       </div>
     </div>
     <div class="row">
-      <div class="alert alert-success w-100 text-center" role="alert" v-if="emailSent === 1 && triggeredSend">
+      <div
+        class="alert alert-success w-100 text-center"
+        role="alert"
+        v-if="emailSent === 1 && triggeredSend">
         Email sent successfully!
       </div>
-      <div class="alert alert-danger w-100 text-center" role="alert" v-if="emailSent === 0 && triggeredSend">
+      <div
+        class="alert alert-danger w-100 text-center"
+        role="alert"
+        v-if="emailSent === 0 && triggeredSend">
         {{errorMessage}}
       </div>
     </div>
     <div class="row">
       <form id="signin-form" v-on:submit.prevent="sendEmail" class="email-sender">
-        <div class="form-group col-12">
-          <label for="senderEmail">Sender Email address:</label>
-          <input
-          class="form-control"
-          v-model="input.sender"
-          type="email"
-          placeholder="Sender's Email"
-          required
-          v-validate="{ required: true, email: true }"
-          :class="{'is-danger': errors.has('email')}"
-          name="sender"
-          id="senderEmail"/>
-          <span v-show="errors.has('sender')" class="help is-danger-text">
-            {{ errors.first('sender') }}
-          </span>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="senderEmail">Sender Email address:</label>
+            <input
+              class="form-control"
+              v-model="input.sender"
+              type="email"
+              placeholder="Sender's Email"
+              required
+              v-validate="{ required: true, email: true }"
+              :class="{'is-danger': errors.has('email')}"
+              name="sender"
+              id="senderEmail"/>
+            <span v-show="errors.has('sender')" class="help is-danger-text">
+              {{ errors.first('sender') }}
+            </span>
+          </div>
+
+          <div class="form-group col-md-6">
+            <label for="senderName">Sender Name:</label>
+            <input
+              class="form-control"
+              v-model="input.senderName"
+              type="text"
+              placeholder="Sender's Name"
+              required
+              v-validate="{ required: true }"
+              :class="{'is-danger': errors.has('sender_name')}"
+              name="sender_name"
+              id="senderName"/>
+            <span v-show="errors.has('sender_name')" class="help is-danger-text">
+              {{ errors.first('sender_name') }}
+            </span>
+          </div>
         </div>
 
-        <div class="form-group col-12">
-          <label for="receiverEmail">Receiver Email address:</label>
-          <input
-          class="form-control"
-          v-model="input.receiver"
-          type="email"
-          placeholder="Receiver's Email"
-          required
-          v-validate="{ required: true, email: true }"
-          :class="{'is-danger': errors.has('email')}"
-          name="receiver"
-          id="receiverEmail"/>
-          <span v-show="errors.has('receiver')" class="help is-danger-text">
-            {{ errors.first('receiver') }}
-          </span>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="receiverEmail">Receiver Email address:</label>
+            <input
+              class="form-control"
+              v-model="input.receiver"
+              type="email"
+              placeholder="Receiver's Email"
+              required
+              v-validate="{ required: true, email: true }"
+              :class="{'is-danger': errors.has('email')}"
+              name="receiver"
+              id="receiverEmail"/>
+            <span v-show="errors.has('receiver')" class="help is-danger-text">
+              {{ errors.first('receiver') }}
+            </span>
+          </div>
+
+          <div class="form-group col-md-6">
+            <label for="receiverName">Receiver Name:</label>
+            <input
+              class="form-control"
+              v-model="input.receiverName"
+              type="text"
+              placeholder="Receiver's Name"
+              required
+              v-validate="{ required: true }"
+              :class="{'is-danger': errors.has('receiver_name')}"
+              name="receiver_name"
+              id="receiverName"/>
+            <span v-show="errors.has('receiver_name')" class="help is-danger-text">
+              {{ errors.first('receiver_name') }}
+            </span>
+          </div>
         </div>
 
-        <div class="form-group col-12">
-          <label for="subject">Subject:</label>
-          <input
-            class="form-control"
-            v-model="input.subject"
-            type="text"
-            placeholder="Subject"
-            required
-            v-validate="{ required: true }"
-            :class="{'is-danger': errors.has('subject')}"
-            name="subject"
-            ref="subject"
-            id="subject"/>
-          <span v-show="errors.has('subject')" class="help is-danger-text">
-            {{ errors.first('subject') }}
-          </span>
+        <div class="form-row">
+          <div class="form-group col-12">
+            <label for="subject">Subject:</label>
+            <input
+              class="form-control"
+              v-model="input.subject"
+              type="text"
+              placeholder="Subject"
+              required
+              v-validate="{ required: true }"
+              :class="{'is-danger': errors.has('subject')}"
+              name="subject"
+              ref="subject"
+              id="subject"/>
+            <span v-show="errors.has('subject')" class="help is-danger-text">
+              {{ errors.first('subject') }}
+            </span>
+          </div>
         </div>
 
-        <div class="form-group col-12">
-          <label for="content">Content:</label>
-          <textarea
-            class="form-control"
-            v-model="input.content"
-            type="text"
-            placeholder="Enter Message body here"
-            required
-            v-validate="{ required: true }"
-            :class="{'is-danger': errors.has('content')}"
-            name="content"
-            rows="10"
-            ref="content"
-            id="content">
-          </textarea>
-          <span v-show="errors.has('content')" class="help is-danger-text">
-            {{ errors.first('content') }}
-          </span>
+        <div class="form-row">
+          <div class="form-group col-12">
+            <label for="content">Content:</label>
+            <textarea
+              class="form-control"
+              v-model="input.content"
+              type="text"
+              placeholder="Enter Message body here"
+              required
+              v-validate="{ required: true }"
+              :class="{'is-danger': errors.has('content')}"
+              name="content"
+              rows="10"
+              ref="content"
+              id="content">
+            </textarea>
+            <span v-show="errors.has('content')" class="help is-danger-text">
+              {{ errors.first('content') }}
+            </span>
+          </div>
         </div>
 
-        <div class="form-group col-12">
-          <base-button
-            :classNames="`btn vnc-green-background off-white`"
-            :buttonType="`submit`"
-            :disabled="loading || !validFields">
-            SEND MESSAGE
-          </base-button>
+        <div class="form-row">
+          <div class="form-group col-12">
+            <base-button
+              :classNames="`btn vnc-green-background off-white`"
+              :buttonType="`submit`"
+              :disabled="loading || !validFields">
+              SEND MESSAGE
+            </base-button>
+          </div>
         </div>
       </form>
     </div>
@@ -115,7 +165,9 @@ export default {
     return {
       input: {
         sender: '',
+        senderName: '',
         receiver: '',
+        receiverName: '',
         subject: '',
         content: '',
       },
@@ -137,14 +189,16 @@ export default {
           data: this.input,
           method: 'POST',
         };
-        // await this.requestWithBody(payload);
+        await this.requestWithBody(payload);
 
         this.$emit('send-message-status', true);
 
         this.emailSent = 1;
         this.input = {
           sender: '',
+          senderName: '',
           receiver: '',
+          receiverName: '',
           subject: '',
           content: '',
         };

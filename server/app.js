@@ -1,3 +1,4 @@
+import { resolve } from 'path';
 import express from 'express';
 import bodyParser  from 'body-parser';
 import cors from 'cors';
@@ -6,6 +7,7 @@ import routes from './routes';
 import models from './models';
 
 require('dotenv').config({ silent: true });
+const history = require('connect-history-api-fallback')
 
 const app = express();
 const router = express.Router();
@@ -15,7 +17,7 @@ routes(router);
 const headers1 = 'Origin, X-Requested-With, Content-Type, Accept';
 const headers2 = 'Authorization, Access-Control-Allow-Credentials, x-access-token';
 
-const whitelist = [process.env.CLIENT_URL];
+const whitelist = [process.env.CLIENT_URL, process.env.PROD_CLIENT_URL];
 const corsOptionsDelegate = (req, callback) => {
   let corsOptions;
   if (whitelist.indexOf(req.header('Origin')) !== -1) {
@@ -27,6 +29,11 @@ const corsOptionsDelegate = (req, callback) => {
   }
   callback(null, corsOptions);
 };
+
+const publicPath = resolve(__dirname, '../dist');
+const staticConf = { maxAge: '1y', etag: false }
+
+app.use(express.static(publicPath, staticConf))
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -42,6 +49,7 @@ app.use((req, res, next) => {
   next();
 });
 
+app.use('/', history())
 app.use('/api', router);
 
 const port = process.env.PORT || 5600;
