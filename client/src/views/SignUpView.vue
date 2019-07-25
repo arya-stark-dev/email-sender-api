@@ -127,7 +127,7 @@ export default {
         password_confirmation: '',
         username: '',
       },
-      signUpUrl: `${this.$api}/auth`,
+      signUpUrl: `${this.$api}/create-profile`,
     };
   },
 };
