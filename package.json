@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon --exec babel-node server/app.js",
-    "build": "babel server --out-dir dist",
-    "serve": "node dist/app.js"
+    "build": "babel server --out-dir server-dist",
+    "serve": "node server-dist/app.js"
   },
   "repository": {
     "type": "git",
@@ -31,6 +31,7 @@
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.19.0",
     "child-process-promise": "^2.2.1",
+    "connect-history-api-fallback": "^1.6.0",
     "core-js": "^2.6.9",
     "cors": "^2.8.5",
     "debug": "^4.1.1",

@@ -1,6 +1,13 @@
+require('dotenv').config({ silent: true });
+const path = require('path');
+
+process.env.VUE_CLI_BABEL_TARGET_NODE = true;
+process.env.VUE_CLI_BABEL_TRANSPILE_MODULES = true;
+
+console.log({ __dirname });
+
 module.exports = {
-  configureWebpack: {
-  },
+  outputDir: path.resolve(__dirname, '../dist'),
   devServer: {
     open: 'Chrome',
     proxy: {
