@@ -12,8 +12,6 @@ import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './assets/scss/style.scss';
 
-console.log({ apiAPP: process.env.VUE_APP_API_URL }, process.env);
-
 Vue.config.productionTip = false;
 Vue.use(VeeValidate);
 Vue.prototype.$api = process.env.VUE_APP_API_URL;
