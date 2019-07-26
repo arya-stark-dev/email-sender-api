@@ -1,17 +1,17 @@
 {
-  "/login": {
+  "/public/login": {
     "title": "Login Page",
     "requiresAuth": false,
     "authPage": true,
     "keywords": "music player, vue.js, songs, app, software, javascript, login, authenticate"
   },
-  "/create-access": {
+  "/public/create-access": {
     "title": "SignUp Page",
     "requiresAuth": false,
     "authPage": true,
     "keywords": "music player, vue.js, songs, app, software, javascript, register, signup, authenticate"
   },
-  "/": {
+  "/public": {
     "title": "SignUp Page",
     "requiresAuth": true,
     "authPage": false,

@@ -6,7 +6,7 @@ export default (to, from, next) => {
   if (to.matched.some(record => record.meta.requiresAuth)) {
     if (!accessToken) {
       next({
-        path: '/login',
+        path: '/public/login',
         query: { redirect: to.fullPath },
       });
     } else {
@@ -15,7 +15,7 @@ export default (to, from, next) => {
   } else if (to.matched.some(record => record.meta.authPage)) {
     if (accessToken) {
       next({
-        path: '/',
+        path: '/public',
       });
     } else {
       next();
