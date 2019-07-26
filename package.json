@@ -4,9 +4,9 @@
   "description": "An API for sending email with a custom sender address and receiver address",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon --exec babel-node src/app.js",
-    "build": "babel src --out-dir dist",
-    "serve": "node dist/app.js"
+    "start": "nodemon --exec babel-node server/app.js",
+    "build": "cd client && yarn && npm run build && cd ../ && babel server --out-dir server-dist",
+    "serve": "node server-dist/app.js"
   },
   "repository": {
     "type": "git",
@@ -31,6 +31,7 @@
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.19.0",
     "child-process-promise": "^2.2.1",
+    "connect-history-api-fallback": "^1.6.0",
     "core-js": "^2.6.9",
     "cors": "^2.8.5",
     "debug": "^4.1.1",
@@ -50,5 +51,9 @@
     "@babel/preset-env": "^7.4.5",
     "@babel/register": "^7.4.4",
     "nodemon": "^1.19.1"
+  },
+  "engines": {
+    "node": "10.16.0",
+    "npm": "6.9.0"
   }
 }
